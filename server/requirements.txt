@@ -1,0 +1,14 @@
+asgiref==3.7.2
+certifi==2023.5.7
+charset-normalizer==3.1.0
+Django==3.2.19
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.2.2
+idna==3.4
+PyJWT==2.7.0
+pyotp==2.8.0
+pytz==2023.3
+requests==2.31.0
+sqlparse==0.4.4
+typing_extensions==4.6.3
+urllib3==2.0.3
