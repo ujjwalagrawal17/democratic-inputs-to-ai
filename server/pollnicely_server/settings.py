@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ix4c07ha$*2vb%#c4pr9_d)wxa)qx4e=d*fjaz$4#l8(rw49%g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
 
 # Application definition
@@ -134,4 +134,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DLT_TEMPLATE_ID = ''
 MSG91_PROD_KEYS = ''
+SUREPASS_TOKEN = ''
 AUTH_USER_MODEL = "account.User"

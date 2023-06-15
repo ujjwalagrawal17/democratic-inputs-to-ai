@@ -8,7 +8,7 @@ from django.urls import reverse, NoReverseMatch
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 
-from account.models import User
+from account.models import User, UserProfile
 
 
 class UserCreationForm(UserCreationForm):
@@ -51,7 +51,7 @@ class UserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('phone', 'password')}),
         (('Personal info'), {'fields': ('name', 'email')}),
-        (('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'is_operations', 'is_sales',
+        (('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                       'groups', 'user_permissions', 'is_verified')}),
 
     )
@@ -123,3 +123,11 @@ class LogEntryAdmin(admin.ModelAdmin):
 admin.site.register(User, UserAdmin)
 
 admin.site.unregister(Group)
+
+
+class ProfileAdmin(admin.ModelAdmin):
+    date_hierarchy = 'created'
+    list_display = ('id', 'user', 'flag_aadhar_card_verified')
+
+
+admin.site.register(UserProfile, ProfileAdmin)

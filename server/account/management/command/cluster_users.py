@@ -54,3 +54,16 @@ class Command(BaseCommand):
             },
         ]
 
+
+        output_user_list = [
+            {
+                "user": 1,
+                "cluster": 1
+            },
+            {
+                "user": 2,
+                "cluster": 2
+            },
+        ]
+
+

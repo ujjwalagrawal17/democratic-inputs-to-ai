@@ -129,4 +129,4 @@ class Profile(CreationModificationBase):
 
 class UserProfile(Profile):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='_user_profile')
-    wrong_mpin_tries_count = models.IntegerField(default=0)
+    flag_aadhar_card_verified = models.BooleanField(default=False)

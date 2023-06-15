@@ -1,0 +1,462 @@
+{
+	"info": {
+		"_postman_id": "39598902-6203-4fca-bdd8-f298f1a6d3b9",
+		"name": "OpenAI - Democratic Input Project API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Send OTP",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "9999999999",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/account/auth/get-otp/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								"auth",
+								"get-otp",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Send OTP - 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "7292828373",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/account/auth/get-otp/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"auth",
+										"get-otp",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jun 2023 12:04:19 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.7.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"otp_token\": \"ODPTYJIERKZ6PLORQHCV2MXB4GXV6IRD\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Verify OTP",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": [
+						{
+							"name": "Verify OTP - 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "otp_token",
+											"value": "WII2HHCTCF2VHQRLYKYZXBU7MWEO45FN",
+											"type": "text"
+										},
+										{
+											"key": "otp",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/account/auth/verify-otp/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"auth",
+										"verify-otp",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jun 2023 12:06:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.7.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "495"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2ODMxMDg0LCJpYXQiOjE2ODY4MzA3ODQsImp0aSI6IjQzMmQ5ZGUzYmFlMDRjMWU5NjlkZjY0ZDc4YjI5YjE0IiwidXNlcl9pZCI6Mn0.Cm9TedbFRq6PAptFNMlE-NZMC5Hwh3uI6XTqj9kOwNY\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY4NjkxNzE4NCwiaWF0IjoxNjg2ODMwNzg0LCJqdGkiOiJjNzhkN2NlYzdjYmM0ZGFlOGU4YTU1ZWY3ZGVlNGYwYSIsInVzZXJfaWQiOjJ9.CRZr4qyBeaeuNS06OkIkMtmHKreR1fd3Vqz3Alw6tYY\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Check User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "7292828373",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/account/auth/check-user/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								"auth",
+								"check-user",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Check User - 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "7292828373",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/account/auth/check-user/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"auth",
+										"check-user",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jun 2023 12:09:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.7.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"is_user_exist\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "SSO Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sso_username",
+									"value": "7292828373",
+									"type": "text"
+								},
+								{
+									"key": "sso_payload",
+									"value": "{}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/account/auth/login/sso/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								"auth",
+								"login",
+								"sso",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SSO Login - 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "sso_username",
+											"value": "7292828373",
+											"type": "text"
+										},
+										{
+											"key": "sso_payload",
+											"value": "{}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/account/auth/login/sso/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"account",
+										"auth",
+										"login",
+										"sso",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jun 2023 12:08:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.7.6"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "495"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2ODMxMjAzLCJpYXQiOjE2ODY4MzA5MDMsImp0aSI6IjE0NzI2MDJmYmJhNzRjMzQ5OTA3ZTMyYzZiYTcyZDY5IiwidXNlcl9pZCI6M30.1uHfpYzHtjn7UgQZ8DNtP-e71QsaTpWFTpud7FQB3GQ\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY4NjkxNzMwMywiaWF0IjoxNjg2ODMwOTAzLCJqdGkiOiJjZjI5MDZkMDc0NzQ0YzExYWI4ZjhlMjdhNzJmYmFhZSIsInVzZXJfaWQiOjN9.mydo2MUo9UDyWzx9Row0Wnxas1MREm1YI_g-N58osa4\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8001"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
