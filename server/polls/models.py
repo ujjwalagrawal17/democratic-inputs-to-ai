@@ -9,6 +9,7 @@ from utils.models import CreationModificationBase
 class Question(CreationModificationBase):
     question_text = models.TextField()
     description = models.TextField()
+    seed_statements = models.JSONField()
 
     def __str__(self):
         return self.question_text
