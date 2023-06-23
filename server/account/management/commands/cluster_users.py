@@ -1,5 +1,6 @@
 from django.core.management import BaseCommand
 
+import keys
 from account.models import User
 from polls.models import UserInput
 
@@ -17,7 +18,22 @@ class Command(BaseCommand):
             self.clusterer = Clusterer(  # pylint: disable=attribute-defined-outside-init
                 n_components=2, n_clusters='auto')
 
+        user_input_json = list()
         user_inputs = UserInput.objects.all()
+        for user_input in user_inputs:
+            temp_json = {}
+            temp_json["question"] = user_input.question_id
+            temp_json["user"] = user_input.user_id
+            temp_json["statement_shown_to_user"] = user_input.statement_id
+            input = 0
+            if user_input.input == keys.AGREE:
+                input = 1
+            if user_input.input == keys.DISAGREE:
+                input = -1
+            temp_json["input"] = input
+            user_input_json.append(temp_json)
+
+        print("user_input_json", user_input_json)
         user_input_json = [
             {
                 "question": 1,
@@ -63,13 +79,19 @@ class Command(BaseCommand):
             },
         ]
 
+        # 1 user, 101 statements, 10 questions.
+
+        # user_input_json = [{'user': 1, 'statement_shown_to_user': 1, 'input': 1},
+        #                    {'user': 1, 'statement_shown_to_user': 2, 'input': -1}]
+
         # Convert json to ndarray
         ndarray = JSONHandler.json_to_ndarray(
             user_input_json, 'user', {'question': 'input'})
         cluster_labels = self.clusterer.fit_predict(ndarray)
         cluster_labels_json = JSONHandler.ndarray_to_json(
             cluster_labels[:, None], 'user', {'cluster': cluster_labels})
-        return cluster_labels_json
+        print("cluster_labels_json", cluster_labels_json)
+        return
 
 
 class JSONHandler:

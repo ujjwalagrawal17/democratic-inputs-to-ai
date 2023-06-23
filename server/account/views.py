@@ -12,12 +12,6 @@ from account.serializers import OTPLoginSerializer, VerifyOtpSerializer, SSOLogi
 class AuthViewSet(viewsets.GenericViewSet):
     permission_classes = [AllowAny]
 
-    def get_permissions(self):
-        if self.action == 'set_password':
-            self.permission_classes = [IsAuthenticated]
-
-        return super(AuthViewSet, self).get_permissions()
-
     @action(
         detail=False,
         methods=["post"],
